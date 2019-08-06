@@ -1,0 +1,11 @@
+/Users/nickhuang/Documents/c_sharp/puzzles/bin/Debug/netcoreapp2.2/puzzles.deps.json
+/Users/nickhuang/Documents/c_sharp/puzzles/bin/Debug/netcoreapp2.2/puzzles.runtimeconfig.json
+/Users/nickhuang/Documents/c_sharp/puzzles/bin/Debug/netcoreapp2.2/puzzles.runtimeconfig.dev.json
+/Users/nickhuang/Documents/c_sharp/puzzles/bin/Debug/netcoreapp2.2/puzzles.dll
+/Users/nickhuang/Documents/c_sharp/puzzles/bin/Debug/netcoreapp2.2/puzzles.pdb
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.csprojAssemblyReference.cache
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.csproj.CoreCompileInputs.cache
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.AssemblyInfoInputs.cache
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.AssemblyInfo.cs
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.dll
+/Users/nickhuang/Documents/c_sharp/puzzles/obj/Debug/netcoreapp2.2/puzzles.pdb

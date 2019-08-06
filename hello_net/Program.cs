@@ -178,7 +178,7 @@ namespace hello_net
         //    data.Add("chair");
 
         //    object sum= 0;
-        //    foreach (var i in data){
+        //    foreach (object i in data){
         //        if(data[i] is int){
         //            sum += data[i];
         //        }
