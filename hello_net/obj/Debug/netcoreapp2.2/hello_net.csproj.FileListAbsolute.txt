@@ -1,0 +1,11 @@
+/Users/nickhuang/Documents/c_sharp/hello_net/bin/Debug/netcoreapp2.2/hello_net.deps.json
+/Users/nickhuang/Documents/c_sharp/hello_net/bin/Debug/netcoreapp2.2/hello_net.runtimeconfig.json
+/Users/nickhuang/Documents/c_sharp/hello_net/bin/Debug/netcoreapp2.2/hello_net.runtimeconfig.dev.json
+/Users/nickhuang/Documents/c_sharp/hello_net/bin/Debug/netcoreapp2.2/hello_net.dll
+/Users/nickhuang/Documents/c_sharp/hello_net/bin/Debug/netcoreapp2.2/hello_net.pdb
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.csprojAssemblyReference.cache
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.csproj.CoreCompileInputs.cache
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.AssemblyInfoInputs.cache
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.AssemblyInfo.cs
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.dll
+/Users/nickhuang/Documents/c_sharp/hello_net/obj/Debug/netcoreapp2.2/hello_net.pdb
