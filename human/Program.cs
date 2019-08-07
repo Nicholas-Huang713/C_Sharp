@@ -6,7 +6,7 @@ namespace human
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Console.WriteLine("Hello World!");
             Human myHuman = new Human ("Nick");
             System.Console.WriteLine(myHuman.Health);
             Human myEnemy = new Human ("Teng", 5, 5, 5, 50);
