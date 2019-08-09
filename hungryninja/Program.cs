@@ -16,6 +16,20 @@ namespace hungryninja
             nick.Eat(buf.Serve());
             System.Console.WriteLine(nick.isFull);
 
+            nick.Eat(buf.Serve());
+            System.Console.WriteLine(nick.isFull);
+
+            foreach (var i in nick.FoodHistory){
+                System.Console.WriteLine(i.Name);
+            }
+
+            // for (int i= 0 ; i < buf.Menu.Count; i++){
+            //     System.Console.WriteLine(buf.Menu[i]);
+            // }
+
+            // nick.Eat(buf.Serve());
+            // System.Console.WriteLine(nick.isFull);
+
             // System.Console.WriteLine(nick.calorieIntake);
         }
     }
@@ -81,11 +95,16 @@ namespace hungryninja
             }
 
         }
-
-
         public void Eat(Food item)
         {
-            this.calorieIntake += item.Calories;
+            if(this.calorieIntake >= 1200){
+                System.Console.WriteLine("Can't eat");
+            } else{
+                this.calorieIntake += item.Calories;
+                FoodHistory.Add(item);
+            }
+            
+
         }
     }
 }
