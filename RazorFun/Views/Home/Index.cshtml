@@ -10,12 +10,12 @@
         <div class="container text-center">
             <h3>Here are some delicious foods!</h3>
 
-        @{
+            @{
                 string[] arr = {"Mike", "CJ", "Cobe", "Panda"};
                 foreach(var i in arr){
-                  @if(i[0] == "Cobe")
+                  @if(i[0] == "C")
                   {
-                      <p class="text-danger"> @i</p>
+                      <p class="text-danger"> @i </p>
                   }
                   else
                   {
