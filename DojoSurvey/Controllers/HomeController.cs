@@ -21,13 +21,21 @@ namespace DojoSurvey.Controllers
             return RedirectToAction("Show", new {name = name, location = location, language = language, comment = comment});
         }
 
-        [HttpGet("show/{name}/{location}/{language}/{comment}")]
+        [HttpGet("show")]
         public ViewResult Show(string name, string location, string language, string comment)
         {
             ViewBag.Name = name;
             ViewBag.Location = location;
             ViewBag.Language = language;
             ViewBag.Comment = comment;
+
+            // Home someUser = new Home()
+            // {
+            //     FirstName = "Nick",
+            //     LastName = "Huang"
+            // };
+
+
             return View("Show");
         }
     }
