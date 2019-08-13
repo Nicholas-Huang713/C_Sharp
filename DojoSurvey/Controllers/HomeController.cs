@@ -16,26 +16,18 @@ namespace DojoSurvey.Controllers
         }
 
         [HttpPost("submit")]
-        public IActionResult Submit(string name, string location, string language, string comment)
+        public IActionResult Submit(Survey newSurvey)
         {
-            return RedirectToAction("Show", new {name = name, location = location, language = language, comment = comment});
+            return RedirectToAction("Show", newSurvey);
         }
 
         [HttpGet("show")]
-        public ViewResult Show(string name, string location, string language, string comment)
+        public ViewResult Show(Survey newSurvey)
         {
-            ViewBag.Name = name;
-            ViewBag.Location = location;
-            ViewBag.Language = language;
-            ViewBag.Comment = comment;
-
-            // Home someUser = new Home()
-            // {
-            //     FirstName = "Nick",
-            //     LastName = "Huang"
-            // };
-
-
+            ViewBag.Name = newSurvey.Name;
+            ViewBag.Location = newSurvey.Location;
+            ViewBag.Language = newSurvey.Language;
+            ViewBag.Comment = newSurvey.Comment;
             return View("Show");
         }
     }

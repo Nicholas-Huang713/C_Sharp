@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model DojoSurvey.Models.Survey 
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,10 +18,9 @@
         <h4>Dojo Survey</h4>
         <hr>
         <form action="submit" method="post">
-        <p>Your Name: <input type="text" name="name"></p>
+        <p>Your Name: <input type="text" name="Name"></p>
         <p>
-            Dojo Location: <select name="location">
-                <option value="None"></option>
+            Dojo Location: <select name="Location">
                     <option value="Korea">Korea</option>
                     <option value="China">China</option>
                     <option value="Vietnam">Vietnam</option>
@@ -26,8 +28,7 @@
                     </select>
         </p>
         <p>
-            Favorite Language: <select name = "language">
-                    <option value="None"></option>
+            Favorite Language: <select name = "Language">
                     <option value="C#">C#</option>
                     <option value="Python">Python</option>
                     <option value="Javascript">Javascript</option>
@@ -36,7 +37,7 @@
         </p>
 
         <p>Comment (optional): </p>
-        <textarea rows="4" cols="50" name="comment">
+        <textarea rows="4" cols="50" name="Comment">
 
         </textarea>
         <br>
