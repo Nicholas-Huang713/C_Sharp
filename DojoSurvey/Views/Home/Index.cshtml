@@ -17,18 +17,24 @@
         <br>
         <h4>Dojo Survey</h4>
         <hr>
-        <form action="submit" method="post">
-        <p>Your Name: <input type="text" name="Name"></p>
-        <p>
-            Dojo Location: <select name="Location">
+        <form asp-action="Submit" asp-controller="Home" method="post">
+            <p class="text-danger"><span asp-validation-for="Name"></span></p>
+            <label asp-for="Name"></label>
+            <p><input asp-for="Name"></p>
+            <p class="text-danger"><span asp-validation-for="Location"></span></p>
+            <label asp-for="Location"></label>
+            <p>
+                <select asp-for="Location">
                     <option value="Korea">Korea</option>
                     <option value="China">China</option>
                     <option value="Vietnam">Vietnam</option>
                     <option value="Cambodia">Cambodia</option>
-                    </select>
-        </p>
-        <p>
-            Favorite Language: <select name = "Language">
+                </select>
+            </p>
+        <p class="text-danger"><span asp-validation-for="Language"></span></p>
+        <label asp-for="Language"></label>
+        <p>            
+             <select asp-for="Language">
                     <option value="C#">C#</option>
                     <option value="Python">Python</option>
                     <option value="Javascript">Javascript</option>
@@ -36,9 +42,10 @@
                     </select>
         </p>
 
-        <p>Comment (optional): </p>
-        <textarea rows="4" cols="50" name="Comment">
-
+        <p class="text-danger"><span asp-validation-for="Comment"></span></p>
+        <label asp-for="Comment"></label>
+        <br>
+        <textarea asp-for="Comment" rows="4" cols="50">
         </textarea>
         <br>
         <button>Submit</button>

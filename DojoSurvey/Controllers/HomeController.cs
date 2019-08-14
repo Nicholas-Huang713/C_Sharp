@@ -18,7 +18,15 @@ namespace DojoSurvey.Controllers
         [HttpPost("submit")]
         public IActionResult Submit(Survey newSurvey)
         {
-            return RedirectToAction("Show", newSurvey);
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("Show", newSurvey);
+            }
+            else
+            {
+                return View("Index");
+            }
+            
         }
 
         [HttpGet("show")]
