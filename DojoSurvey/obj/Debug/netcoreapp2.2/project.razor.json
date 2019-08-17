@@ -2983,8 +2983,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Home/show.cshtml",
-      "TargetPath": "Views/Home/show.cshtml",
+      "FilePath": "Views/Home/Show.cshtml",
+      "TargetPath": "Views/Home/Show.cshtml",
       "FileKind": "mvc"
     }
   ],

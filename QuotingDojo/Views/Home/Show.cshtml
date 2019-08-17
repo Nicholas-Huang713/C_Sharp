@@ -1,0 +1,7 @@
+<div class="container text-center">
+    @foreach(var quote in ViewBag.Quotes)
+    {
+    <p>@quote["Name"] </p>
+        <p>@quote["MyQuote"]</p>
+    }
+</div>
