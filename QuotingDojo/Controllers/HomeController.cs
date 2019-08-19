@@ -19,7 +19,7 @@ namespace QuotingDojo.Controllers
         [HttpPost("create")]
         public IActionResult Create(Quote newQuote)
         {
-            string query = $"INSERT INTO quotes (Name, MyQuote) VALUES ('{newQuote.Name}', '{newQuote.MyQuote}')";
+            string query = $"INSERT INTO quotes (Name, Quote) VALUES ('{newQuote.name}', '{newQuote.quote}')";
             DbConnector.Execute(query);
             return RedirectToAction("Show");
         }

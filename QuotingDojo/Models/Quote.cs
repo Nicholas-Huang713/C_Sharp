@@ -10,10 +10,10 @@ namespace QuotingDojo.Models
     {
         [Required]
         [Display(Name="Your Name: ")]
-        public string Name {get;set;}
+        public string name {get;set;}
         [Required]
         [Display(Name="Your Comment: ")]
-        public string MyQuote{get;set;}
+        public string quote{get;set;}
 
     }
 }

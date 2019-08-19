@@ -7,16 +7,16 @@
     <h1>Welcome to Quoting Dojo</h1>
     
     <form asp-action="Create" asp-controller="Home" method="Post">
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <span asp-validation-for="name" class="text-danger"></span>
         <br>
-        <label asp-for="Name"></label>
-        <input asp-for="Name">
+        <label asp-for="name"></label>
+        <input asp-for="name">
         <br>
-        <span asp-validation-for="MyQuote" class="text-danger"></span>
+        <span asp-validation-for="quote" class="text-danger"></span>
         <br>
-        <label asp-for="MyQuote"></label>
-        <textarea asp-for="MyQuote" rows="4" cols="50"></textarea>
+        <label asp-for="quote"></label>
+        <textarea asp-for="quote" rows="4" cols="50"></textarea>
         <br>
-        <a href="create"><button>Add my quote!</button></a> | <a href="#"><button>Skip to Quotes!</button></a>
+        <button>Add my quote!</button> | <a href="#"><button>Skip to Quotes!</button></a>
     </form>
 </div>
