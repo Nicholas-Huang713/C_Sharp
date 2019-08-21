@@ -1,0 +1,49 @@
+@model Crudelicious.Models.Dish 
+
+@{
+    ViewData["Title"] = "CRUDelicious | Form";
+}
+
+<div class="container text-center">
+    <h3>Add a new Dish!</h3>
+<div class="row">
+    <a href="/">Home</a>
+</div>
+<form asp-action="Create" asp-controller="Home" method="post">
+<div class="row">
+    
+    <div class="col">
+        <p class="text-danger"><span asp-validation-for="Chef"></span></p>
+        <label asp-for="Chef"></label>
+        <p><input asp-for="Chef"></p>
+        <p class="text-danger"><span asp-validation-for="Name"></span></p>
+        <label asp-for="Name"></label>
+        <p><input asp-for="Name"></p>
+        <p class="text-danger"><span asp-validation-for="Calories"></span></p>
+        <label asp-for="Calories"></label>
+        <p><input asp-for="Calories"></p>
+    </div>
+    <div class="col">
+        <p class="text-danger"><span asp-validation-for="Tastiness"></span></p>
+            <p><label asp-for="Tastiness"></label></p>
+            <p>
+                <select asp-for="Tastiness">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </p>
+    </div>
+    <div class="col">
+        <p class="text-danger"><span asp-validation-for="Description"></span></p>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" rows="4" cols="50">
+        </textarea>
+        <br>
+        <button>Add Dish</button>
+    </div>
+</div>
+</form>
+</div>

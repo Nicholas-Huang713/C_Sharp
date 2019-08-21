@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "CRUDelicious | View One";
+}
+
+<div class="container"><a href="/">Home</a></div>
+
+<div class="container text-center">
+    <h1>@ViewBag.Dish.Name </h1>
+    <h3>@ViewBag.Dish.Chef</h3>
+    <hr>
+    <p>@ViewBag.Dish.Description</p>
+    <p>Calories: @ViewBag.Dish.Calories</p>
+    <p>Tastiness: @ViewBag.Dish.Tastiness</p>
+
+    <hr>
+
+    <a href="/delete/@ViewBag.Dish.DishId"><button>Delete</button></a> | <a href="/edit/@ViewBag.Dish.DishId"><button>Edit</button></a>
+</div>
