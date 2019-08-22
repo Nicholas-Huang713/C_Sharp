@@ -1,0 +1,19 @@
+@model LoginUser
+
+@{
+    ViewData["Title"] = "Login Reg | Login";
+}
+
+<div class="container text-center">
+    <h3>Login to this Cool Site!</h3>
+    <form action="/signin" method="Post">
+        <p class="text-danger"><span asp-validation-for="LoginEmail"></span></p>
+        <label asp-for="LoginEmail"></label>
+        <p><input asp-for="LoginEmail" type="email" id="LoginEmail"></p>
+        <p class="text-danger"><span asp-validation-for="LoginPassword"></span></p>
+        <label asp-for="LoginPassword"></label>
+        <p><input asp-for="LoginPassword" type="password" id="LoginPassword"></p>
+        <br>
+        <button>Login Now</button>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+﻿@model LoginReg.Models.User
+
+@{
+    ViewData["Title"] = "Login Reg | Register";
+}
+
+<div class="container text-center">
+    <h3>Register to this Cool Site!</h3>
+    <form action="/register" method="Post">
+        <div class="row">
+            <div class="col">
+                <p class="text-danger"><span asp-validation-for="FirstName"></span></p>
+                <label asp-for="FirstName"></label>
+                <p><input asp-for="FirstName"></p>
+                <p class="text-danger"><span asp-validation-for="LastName"></span></p>
+                <label asp-for="LastName"></label>
+                <p><input asp-for="LastName"></p>
+                <p class="text-danger"><span asp-validation-for="Email"></span></p>
+                <label asp-for="Email"></label>
+                <p><input asp-for="Email"></p>
+            </div>
+            <div class="col">
+                <p class="text-danger"><span asp-validation-for="Password"></span></p>
+                <label asp-for="Password"></label>
+                <p><input asp-for="Password"></p>
+                <p class="text-danger"><span asp-validation-for="Confirm"></span></p>
+                <label asp-for="Confirm"></label>
+                <p><input asp-for="Confirm"></p>
+            </div>
+        </div>
+        <button>Sign Up Now</button>
+    </form>
+</div>

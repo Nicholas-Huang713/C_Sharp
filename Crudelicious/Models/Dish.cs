@@ -6,14 +6,13 @@ namespace Crudelicious.Models
    public class Dish
    {
        [Key]
-
-       [Required]
        public int DishId {get; set;}
        [Required]
        public string Name{get;set;}
        [Required]
        public string Chef{get;set;}
        [Required]
+       [Range(1,5)]
        public int Tastiness{get;set;}
        [Required]
        [Range(1,900)]
