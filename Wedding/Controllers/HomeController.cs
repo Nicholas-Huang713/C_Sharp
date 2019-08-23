@@ -174,7 +174,7 @@ namespace Wedding.Controllers
                                   Include(wedding => wedding.Guests)
                                   .ThenInclude(guest => guest.User)
                                   .SingleOrDefault(wedding=> wedding.PlanId == weddingId);
-            Rsvp currentRsvp = dbContext.Rsvps.FirstOrDefault(rsvp => rsvp.User_Id == HttpContext.Session.GetInt32("id"));
+            Rsvp currentRsvp = dbContext.Rsvps.FirstOrDefault(rsvp => rsvp.User_Id == HttpContext.Session.GetInt32("id") && rsvp.WeddingId == weddingId);
             currentWedding.Guests.Remove(currentRsvp);
             dbContext.SaveChanges();
             return RedirectToAction("Dashboard"); 
