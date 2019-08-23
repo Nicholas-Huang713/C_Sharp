@@ -1,0 +1,69 @@
+<div class="container text-center">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <h1>Welcome to the Wedding Planner</h1>
+        </div>
+        <div class="col-4 text-right">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    @{
+            
+        foreach (var wedding in @ViewBag.WeddingList)
+        {
+            <tr>
+                <td> <a href="/show/@wedding.PlanId">@wedding.Groom and @wedding.Bride</a> </td>
+                <td>@wedding.Date.ToString("MMM dd, yyyy")</td>
+                <td>@wedding.Guests.Count</td>
+                @if(@ViewBag.Id == @wedding.User_Id)
+                {
+                    <td> <a href="/delete/@wedding.PlanId">Delete</a></td>
+                }
+                else 
+                {
+                    if(@wedding.Guests.Count == 0) 
+                    {
+                        <td><a href="/rsvp/@wedding.PlanId">RSVP</a></td>
+                    }
+                    else
+                    {
+                        int count = 0;
+                        @foreach(var guest in @wedding.Guests)
+                        {
+                            if(@guest.User == @ViewBag.CurrentUser)
+                            {
+                                count = 1;
+                            }                        
+                        }
+                        if(count == 1)
+                        {
+                            <td><a href="/cancel/@wedding.PlanId">Un-RSVP</a></td>
+                        }
+                        else
+                        {
+                            <td><a href="/rsvp/@wedding.PlanId">RSVP</a></td>
+                        }
+                    }
+                    
+                }
+            </tr>
+        }
+    }
+    </tbody>
+  </table>
+  <div class="container text-right">
+      <a href="/new"><button>New Wedding</button></a> 
+  </div>
+</div>

@@ -1,0 +1,24 @@
+
+<div class="container text-center">
+    <br><br>
+    <div class="row">
+        <div class="col-8">
+            <h1>@Model.Groom and @Model.Bride 's Wedding</h1>
+        </div>
+        <div class="col-4 text-right">
+            <a href="/dashboard">Dashboard</a> | <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <h3>Date: @Model.Date.ToString("MMM dd, yyyy")</h3>
+    <h4>Guests </h4>
+    <hr>
+    @{
+        @foreach(var guest in @Model.Guests)
+        {
+            <p>@guest.User.FirstName @guest.User.LastName</p> 
+        }
+    }
+    
+    
+    
+</div>

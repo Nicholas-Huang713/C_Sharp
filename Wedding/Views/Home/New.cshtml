@@ -1,0 +1,32 @@
+@model Plan
+<div class="container text-center">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <h1>Plan Your Wedding</h1>
+        </div>
+        <div class="col-4 text-right">
+           <a href="/dashboard">Dashboard</a> | <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <form asp-action="Create" asp-controller="Home" method="Post">
+            <input type="hidden" asp-for="User_Id" value="@ViewBag.UserId">
+            <p class="text-danger"><span asp-validation-for="Bride"></span></p>
+            <label asp-for="Bride"></label>
+            <p><input asp-for="Bride"></p>
+            <p class="text-danger"><span asp-validation-for="Groom"></span></p>
+            <label asp-for="Groom"></label>
+            <p><input asp-for="Groom"></p>
+            <p class="text-danger"><span asp-validation-for="Date"></span></p>
+            <label asp-for="Date"></label>
+            <p><input asp-for="Date"></p>
+            <p class="text-danger"><span asp-validation-for="Address"></span></p>
+            <label asp-for="Address">Wedding Address</label>
+            <p><textarea asp-for="Address" cols="30" rows="3"></textarea></p>
+            <button>Create</button>
+        </form>
+    </div>
+    
+</div>
