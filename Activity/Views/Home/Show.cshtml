@@ -1,0 +1,28 @@
+<div class="container text-center">
+    <br><br>
+    <div class="row">
+        <div class="col-8">
+            <h1>@Model.Title</h1>
+        </div>
+        <div class="col-4 text-right">
+            <a href="/dashboard">Home</a> | <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <a href="/join/@Model.ThisActivityId"><button>Join</button></a>
+    <h3>Event Coordinator: @ViewBag.Coordinator</h3>
+    <h3>Description: </h3>
+    <br>
+    <h5>@Model.Description</h5>
+    <br>
+    <h4>Participants</h4>
+    <hr>
+    @{
+        @foreach(var participant in @Model.Participants)
+        {
+            <p>@participant.User.Name</p> 
+        }
+    }
+    
+    
+    
+</div>

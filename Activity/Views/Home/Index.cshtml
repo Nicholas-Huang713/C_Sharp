@@ -1,0 +1,44 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Activity Center | LoginReg";
+}
+
+
+<div class="container text-center">
+    <br>
+    <br>
+    <h1>Welcome to the Dojo Activity Center</h1>
+    <br>
+    <div class="row">
+        <div class="col text-right">
+            <h3>Register</h3>
+            <form asp-action="Register" asp-controller="Home" method="POST">
+                <p class="text-danger"><span asp-validation-for="Name"></span></p>
+                <label asp-for="Name"></label>
+                <p><input asp-for="Name"></p>
+                <p class="text-danger"><span asp-validation-for="Email"></span></p>
+                <label asp-for="Email"></label>
+                <p><input asp-for="Email"></p>
+                <p class="text-danger"><span asp-validation-for="Password"></span></p>
+                <label asp-for="Password"></label>
+                <p><input asp-for="Password"></p>
+                <p class="text-danger"><span asp-validation-for="Confirm"></span></p>
+                <label asp-for="Confirm"></label>
+                <p><input asp-for="Confirm"></p>
+                <button>Register</button>
+            </form>
+        </div>
+        <div class="col text-left">
+            <h3>Login</h3>
+            <span class="text-danger">@ViewBag.Error</span> 
+            <form action="/login" method="POST">
+                <label for="LoginEmail">Email:</label>
+                <p><input type="text" name="LoginEmail"></p>
+                <label for="LoginPassword">Password:</label>
+                <p><input type="password" name="LoginPassword"></p>
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
+    
+</div>

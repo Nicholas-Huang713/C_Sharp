@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Activity Center | Dashboard";
+}
+
+<div class="container text-center">
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-7">
+            <h1>Dojo Activity Center</h1>
+        </div>
+        <div class="col-3">
+            <h4>Welcome, @ViewBag.CurrentUser.Name!</h4>
+        </div>
+        <div class="col-2 text-right">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Event Coordinator</th>
+        <th>No. of Participants</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        @{
+                
+            foreach (var activity in @ViewBag.ActivityList)
+            {
+                <tr>
+                    <td> <a href="/show/@activity.ThisActivityId">@activity.Title</a> </td>
+                    <td>@activity.Date.ToString("MMM dd, yyyy") at @activity.Time</td>
+                    <td>@activity.Duration @activity.TimeType</td>
+                    <td>@activity.Coordinator</td>
+                    <td>@activity.Participants.Count</td>
+                    @if(@ViewBag.Id == @activity.User_Id)
+                    {
+                        <td> <a href="/delete/@activity.ThisActivityId">Delete</a></td>
+                    }
+                    else 
+                    {
+                        if(@activity.Participants.Count == 0) 
+                        {
+                            <td><a href="/join/@activity.ThisActivityId">Join</a></td>
+                        }
+                        else
+                        {
+                            int count = 0;
+                            @foreach(var participant in @activity.Participants)
+                            {
+                                if(@participant.User == @ViewBag.CurrentUser)
+                                {
+                                    count = 1;
+                                }                        
+                            }
+                            if(count == 1)
+                            {
+                                <td><a href="/leave/@activity.ThisActivityId">Leave</a></td>
+                            }
+                            else
+                            {
+                                <td><a href="/join/@activity.ThisActivityId">Join</a></td>
+                            }
+                        }
+                        
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+  </table>
+  <div class="container text-right">
+      <a href="/new"><button>Add New Activity</button></a> 
+  </div>
+</div>
