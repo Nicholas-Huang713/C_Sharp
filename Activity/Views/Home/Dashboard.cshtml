@@ -36,7 +36,7 @@
                     <td> <a href="/show/@activity.ThisActivityId">@activity.Title</a> </td>
                     <td>@activity.Date.ToString("MMM dd, yyyy") at @activity.Time</td>
                     <td>@activity.Duration @activity.TimeType</td>
-                    <td>@activity.Coordinator</td>
+                    <td>@activity.Coordinator.Name</td>
                     <td>@activity.Participants.Count</td>
                     @if(@ViewBag.Id == @activity.User_Id)
                     {

@@ -91,6 +91,7 @@ namespace Activity.Controllers
             List<ThisActivity> activityList = dbContext.Activities
                                     .Include(a => a.Participants)
                                     .ThenInclude( a => a.User)
+                                    .Include(a=> a.Coordinator)
                                     .OrderBy(a => a.Date)
                                     .ToList();
             List<ThisAction> userActions = dbContext.Actions.Where(a => a.User == currentUser).ToList();
@@ -110,7 +111,7 @@ namespace Activity.Controllers
             }
             ViewBag.UserId = HttpContext.Session.GetInt32("id");
             var dbUser = dbContext.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("id"));
-            ViewBag.DbUser = dbUser;
+            ViewBag.Coordinator = dbUser;
             return View("New");
         }
 
@@ -141,12 +142,13 @@ namespace Activity.Controllers
                 return RedirectToAction("Index");
             }
             var thisActivity = dbContext.Activities
+                              .Include(a => a.Coordinator)
                               .Include(a => a.Participants)
                               .ThenInclude(p => p.User)
                               .FirstOrDefault(a => a.ThisActivityId == activityId);
-            var coordinatorName = dbContext.Activities.Include(a => a.Coordinator)
+            var coordinator = dbContext.Activities.Include(a => a.Coordinator)
                                   .FirstOrDefault(a => a.ThisActivityId == activityId);
-            ViewBag.Coordinator = coordinatorName;
+            ViewBag.Coordinator = coordinator;
             return View("Show", thisActivity);
         }
 
