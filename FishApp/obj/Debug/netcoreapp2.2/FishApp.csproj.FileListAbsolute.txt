@@ -30,3 +30,6 @@
 /Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/FishApp.csproj.CopyComplete
 /Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Login.g.cshtml.cs
 /Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Registration.g.cshtml.cs
+/Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/Dashboard.g.cshtml.cs
+/Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/AddPost.g.cshtml.cs
+/Users/nickhuang/Documents/c_sharp/FishApp/obj/Debug/netcoreapp2.2/Razor/Views/Home/AllPosts.g.cshtml.cs

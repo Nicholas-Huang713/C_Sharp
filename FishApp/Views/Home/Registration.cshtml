@@ -1,3 +1,8 @@
+@model User
+@{
+    ViewData["Title"] = "FishON | Registration";
+}
+
 <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -25,13 +30,23 @@
     <div class="row">
         <div class="col"></div>
         <div class="regdiv border border-dark col">
-            <h1>Register</h1>
-            <form action="#" method="Post">
-                <p>First Name: <input type="text"></p> 
-                <p>Last Name: <input type="text"></p> 
-                <p>Email: <input type="text"></p> 
-                <p>Password: <input type="text"></p>    
-                <p>Confirm Password: <input type="text"></p> 
+            <h3>Register</h3>
+            <form asp-action="Register" asp-controller="Home" method="POST">
+                <p class="text-danger"><span asp-validation-for="FirstName"></span></p>
+                <label asp-for="FirstName"></label>
+                <p><input asp-for="FirstName"></p>
+                <p class="text-danger"><span asp-validation-for="LastName"></span></p>
+                <label asp-for="LastName"></label>
+                <p><input asp-for="LastName"></p>
+                <p class="text-danger"><span asp-validation-for="Email"></span></p>
+                <label asp-for="Email"></label>
+                <p><input asp-for="Email"></p>
+                <p class="text-danger"><span asp-validation-for="Password"></span></p>
+                <label asp-for="Password"></label>
+                <p><input asp-for="Password"></p>
+                <p class="text-danger"><span asp-validation-for="Confirm"></span></p>
+                <label asp-for="Confirm"></label>
+                <p><input asp-for="Confirm"></p>
                 <button>Register</button>
             </form>
         </div>

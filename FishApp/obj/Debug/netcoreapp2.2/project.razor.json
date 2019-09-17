@@ -2961,8 +2961,18 @@
   "RootNamespace": "FishApp",
   "Documents": [
     {
+      "FilePath": "Views/Home/Dashboard.cshtml",
+      "TargetPath": "Views/Home/Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Home/Privacy.cshtml",
       "TargetPath": "Views/Home/Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/AllPosts.cshtml",
+      "TargetPath": "Views/Home/AllPosts.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3003,6 +3013,11 @@
     {
       "FilePath": "Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/AddPost.cshtml",
+      "TargetPath": "Views/Home/AddPost.cshtml",
       "FileKind": "mvc"
     },
     {

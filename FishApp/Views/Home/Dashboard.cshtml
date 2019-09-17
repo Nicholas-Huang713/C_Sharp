@@ -1,0 +1,102 @@
+<div class="container-fluid text-center">
+    <header>
+        <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="row">
+                <div class="col">
+                    <h5>FishON!</h5>
+                </div>
+                <div class="col text-right">
+                    <a href="/logout"><button>Logout</button></a>
+                </div>
+            </div>
+        </nav> -->
+        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <h3>FishON!</h3> 
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/logout"><button> Logout</button></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <body>
+        
+   
+    <div class="container-fluid text-center">
+        <div id="map"></div>
+        <script>
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+        var map, infoWindow;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 11
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('You are here.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+            } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+        </script>
+            <!--Load the API from the specified URL
+            * The async attribute allows the browser to render the page while the API loads
+            * The key parameter will contain your own API key (which is not needed for this tutorial)
+            * The callback parameter executes the initMap() function
+            -->
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI50W1RUyBFD0zhky_UvNoxnaQmBwdbH4&callback=initMap">
+            </script>
+    </div>
+
+ </body>
+
+
+    <footer class="botnav border-top footer text-center">
+        <div class="row">
+            <div class="col text-right">
+                <a href="/allposts"><img class="imglink" src="https://cdn.pixabay.com/photo/2018/05/21/12/36/clipart-3418130_960_720.png" alt="View All Posts Image Link"></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href="/dashboard"><img class="imglink" src="https://image.flaticon.com/icons/svg/56/56494.svg" alt="Log Catch Image Link"></a>
+            </div>
+            <div class="col text-left">
+                <a href="/addpost"><img class="imglink" src="https://image.flaticon.com/icons/svg/60/60745.svg" alt="Log Catch Image Link"></a>
+            </div>
+        </div>
+    </footer>
+    
+</div>

@@ -1,0 +1,48 @@
+@model Catch
+<div class="container-fluid text-center">
+<header>        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <h3>FishON!</h3> 
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/logout"><button> Logout</button></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container-fluid text-center">
+         <form asp-action="Log" asp-controller="Home" method="Post">
+            <input type="hidden" asp-for="UserId" value="@ViewBag.UserId">
+            <p class="text-danger"><span asp-validation-for="Img"></span></p>
+            <label asp-for="Img">Img Url</label>
+            <p><input asp-for="Img"></p>
+            <p class="text-danger"><span asp-validation-for="Date"></span></p>
+            <label asp-for="Date"></label>
+            <p><input asp-for="Date"></p>
+            <p class="text-danger"><span asp-validation-for="Description"></span></p>
+            <label asp-for="Description"></label>
+            <p><textarea asp-for="Description" cols="30" rows="3"></textarea></p>
+            <button class="btn btn-primary mb-2">Log Catch!</button>
+        </form>
+    </div>
+
+
+       <footer class="botnav border-top footer text-center">
+        <div class="row">
+            <div class="col text-right">
+                <a href="/allposts"><img class="imglink" src="https://cdn.pixabay.com/photo/2018/05/21/12/36/clipart-3418130_960_720.png" alt="View All Posts Image Link"></a>
+            </div>
+            <div class="col-1 text-center">
+                <a href="/dashboard"><img class="imglink" src="https://image.flaticon.com/icons/svg/56/56494.svg" alt="Log Catch Image Link"></a>
+            </div>
+            <div class="col text-left">
+                <a href="/addpost"><img class="imglink" src="https://image.flaticon.com/icons/svg/60/60745.svg" alt="Log Catch Image Link"></a>
+            </div>
+        </div>
+    </footer>
+</div>

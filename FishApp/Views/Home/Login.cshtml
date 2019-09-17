@@ -25,10 +25,13 @@
     <div class="row">
         <div class="col"></div>
         <div class="logdiv border border-dark col">
-            <h1>Login</h1>
-            <form action="#" method="Post">
-                <p>Email: <input type="text"></p> 
-                <p>Password: <input type="text"></p>    
+            <h3>Login</h3>
+            <span class="text-danger">@ViewBag.Error</span> 
+            <form action="/signin" method="POST">
+                <label for="LoginEmail">Email:</label>
+                <p><input type="text" name="LoginEmail"></p>
+                <label for="LoginPassword">Password:</label>
+                <p><input type="password" name="LoginPassword"></p>
                 <button>Fish On!</button>
             </form>
         </div>
