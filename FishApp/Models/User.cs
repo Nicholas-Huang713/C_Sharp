@@ -7,7 +7,7 @@ namespace FishApp.Models
 {
     public class User
     {
-        
+        [Key]
         public int UserId {get;set;}
         [Required]
         [MinLength(2)]

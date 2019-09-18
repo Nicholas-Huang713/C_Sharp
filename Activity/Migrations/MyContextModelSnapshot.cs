@@ -24,9 +24,7 @@ namespace Activity.Migrations
 
                     b.Property<int>("ThisActivityId");
 
-                    b.Property<int?>("UserId");
-
-                    b.Property<int>("User_Id");
+                    b.Property<int>("UserId");
 
                     b.HasKey("ThisActionId");
 
@@ -41,8 +39,6 @@ namespace Activity.Migrations
                 {
                     b.Property<int>("ThisActivityId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("CoordinatorUserId");
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -62,11 +58,11 @@ namespace Activity.Migrations
 
                     b.Property<DateTime>("UpdatedAt");
 
-                    b.Property<int>("User_Id");
+                    b.Property<int>("UserId");
 
                     b.HasKey("ThisActivityId");
 
-                    b.HasIndex("CoordinatorUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Activities");
                 });
@@ -103,14 +99,16 @@ namespace Activity.Migrations
 
                     b.HasOne("Activity.Models.User", "User")
                         .WithMany("Actions")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Activity.Models.ThisActivity", b =>
                 {
                     b.HasOne("Activity.Models.User", "Coordinator")
                         .WithMany("CreatedActivities")
-                        .HasForeignKey("CoordinatorUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -12,7 +12,7 @@
     </div>
     <div class="container">
         <form asp-action="Create" asp-controller="Home" method="Post">
-            <input type="hidden" asp-for="User_Id" value="@ViewBag.UserId">
+            <input type="hidden" asp-for="UserId" value="@ViewBag.UserId">
             <input type="hidden" asp-for="Coordinator" value="@ViewBag.Coordinator">
             <p class="text-danger"><span asp-validation-for="Title"></span></p>
             <label asp-for="Title"></label>

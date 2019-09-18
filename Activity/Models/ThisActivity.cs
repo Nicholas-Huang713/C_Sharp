@@ -23,7 +23,7 @@ namespace Activity.Models
 
         [Required]
         public string Description {get;set;}
-        public int User_Id {get;set;}
+        public int UserId {get;set;}
         public User Coordinator {get;set;}
 
         public List<ThisAction> Participants {get;set;}

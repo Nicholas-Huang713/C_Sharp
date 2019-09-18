@@ -8,7 +8,7 @@ namespace Activity.Models
     public class ThisAction
     {
         public int ThisActionId {get;set;}
-        public int User_Id {get;set;}
+        public int UserId {get;set;}
         public User User {get;set;}
         public int ThisActivityId {get;set;}
         public ThisActivity ThisActivity {get;set;}

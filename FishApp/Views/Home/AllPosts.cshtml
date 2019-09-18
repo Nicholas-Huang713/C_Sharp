@@ -21,11 +21,11 @@
         @{
             foreach(var c in @ViewBag.CatchList)
             {
-                <h3>@c.Liker.FirstName</h3>
+                <h3>@c.Creator.FirstName</h3>
                 <hr>
-                <img style="width: 100%; height: 190px;" src="@c.Img"  alt="Catch Image">
+                <img style="width: 100%; height: 200px;" src="/images/@c.Img"  alt="Catch Image">
                 <br>
-                <p>@c.Likes.Count Likes</p>
+                <p>@c.Likers.Count Likes</p>
                 <p>@c.Description</p>
             }
         }

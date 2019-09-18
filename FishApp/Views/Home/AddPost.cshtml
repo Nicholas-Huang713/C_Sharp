@@ -16,11 +16,10 @@
 
     </header>
     <div class="container-fluid text-center">
-         <form asp-action="Log" asp-controller="Home" method="Post">
-            <input type="hidden" asp-for="UserId" value="@ViewBag.UserId">
-            <p class="text-danger"><span asp-validation-for="Img"></span></p>
-            <label asp-for="Img">Img Url</label>
-            <p><input asp-for="Img"></p>
+         <form enctype="multipart/form-data" asp-action="Log" asp-controller="Home" method="Post">
+            <input type="hidden" asp-for="UserId" value="@ViewBag.UserId">            <p class="text-danger"><span asp-validation-for="Img"></span></p>
+            <label asp-for="Img">Upload Image</label>
+            <p><input type="file" id="file" name="file"></p>
             <p class="text-danger"><span asp-validation-for="Date"></span></p>
             <label asp-for="Date"></label>
             <p><input asp-for="Date"></p>

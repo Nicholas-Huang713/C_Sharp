@@ -1,1 +1,0 @@
-public List<ThisActivity> CreatedActivities {get; set;}

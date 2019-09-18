@@ -38,7 +38,7 @@
                     <td>@activity.Duration @activity.TimeType</td>
                     <td>@activity.Coordinator.Name</td>
                     <td>@activity.Participants.Count</td>
-                    @if(@ViewBag.Id == @activity.User_Id)
+                    @if(@ViewBag.Id == @activity.UserId)
                     {
                         <td> <a href="/delete/@activity.ThisActivityId">Delete</a></td>
                     }

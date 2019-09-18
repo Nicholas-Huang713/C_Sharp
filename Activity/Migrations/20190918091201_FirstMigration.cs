@@ -37,8 +37,7 @@ namespace Activity.Migrations
                     Duration = table.Column<int>(nullable: false),
                     TimeType = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: false),
-                    User_Id = table.Column<int>(nullable: false),
-                    CoordinatorUserId = table.Column<int>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
@@ -46,11 +45,11 @@ namespace Activity.Migrations
                 {
                     table.PrimaryKey("PK_Activities", x => x.ThisActivityId);
                     table.ForeignKey(
-                        name: "FK_Activities_Users_CoordinatorUserId",
-                        column: x => x.CoordinatorUserId,
+                        name: "FK_Activities_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,8 +58,7 @@ namespace Activity.Migrations
                 {
                     ThisActionId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    User_Id = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
                     ThisActivityId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -77,7 +75,7 @@ namespace Activity.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -91,9 +89,9 @@ namespace Activity.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Activities_CoordinatorUserId",
+                name: "IX_Activities_UserId",
                 table: "Activities",
-                column: "CoordinatorUserId");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

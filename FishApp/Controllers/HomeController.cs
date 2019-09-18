@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -109,15 +110,14 @@ namespace FishApp.Controllers
             }
             User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
             List<Catch> catchList = dbContext.Catches
-                                    .Include(a => a.Likes)
-                                    .ThenInclude( a => a.User)
+                                    .Include(a => a.Creator)
                                     .OrderBy(a => a.Date)
                                     .ToList();
-            List<Like> userLikes = dbContext.Likes.Where(a => a.User == currentUser).ToList();
+            // List<Like> userLikes = dbContext.Likes.Where(a => a.User == currentUser).ToList();
             ViewBag.Id = HttpContext.Session.GetInt32("id"); 
             ViewBag.CurrentUser = currentUser;
             ViewBag.CatchList = catchList;
-            ViewBag.Likes = userLikes;                       
+            // ViewBag.Likes = userLikes;   
             return View("AllPosts");
         }
 
@@ -132,7 +132,7 @@ namespace FishApp.Controllers
             return View("AddPost");
         }
         [HttpPost("log")]
-        public IActionResult Log(Catch Catch)
+        public IActionResult Log(Catch Catch, IFormFile file)
         {
             if(HttpContext.Session.GetInt32("id")== null)
             {
@@ -140,7 +140,10 @@ namespace FishApp.Controllers
             }
             if(ModelState.IsValid)
             {
+                
                 dbContext.Add(Catch);
+                dbContext.SaveChanges();
+                UploadFile(file,Catch.CatchId);
                 dbContext.SaveChanges();
                 return RedirectToAction("AllPosts");
             }
@@ -149,6 +152,18 @@ namespace FishApp.Controllers
                 return View("AddPost");
             }
             
+        }
+
+        public void UploadFile(IFormFile file, int catchId)
+        {
+            var fileName = file.FileName;
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images",fileName);
+            using(var fileStream = new FileStream(path,FileMode.Create)){
+                file.CopyTo(fileStream);
+            }
+            var myCatch = dbContext.Catches.FirstOrDefault(x=>x.CatchId == catchId);
+            myCatch.Img = fileName;
+            dbContext.Update(myCatch);
         }
 
         [HttpGet("logout")]

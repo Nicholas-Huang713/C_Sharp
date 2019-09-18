@@ -89,9 +89,9 @@ namespace Activity.Controllers
             }
             User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
             List<ThisActivity> activityList = dbContext.Activities
+                                    .Include(a=> a.Coordinator)
                                     .Include(a => a.Participants)
                                     .ThenInclude( a => a.User)
-                                    .Include(a=> a.Coordinator)
                                     .OrderBy(a => a.Date)
                                     .ToList();
             List<ThisAction> userActions = dbContext.Actions.Where(a => a.User == currentUser).ToList();
@@ -165,7 +165,7 @@ namespace Activity.Controllers
                                   .ThenInclude(p => p.User)
                                   .SingleOrDefault(a=> a.ThisActivityId == activityId);
             ThisAction newAction = new ThisAction{
-                User_Id = currentUser.UserId,
+                UserId = currentUser.UserId,
                 User = currentUser,
                 ThisActivityId = currentActivity.ThisActivityId,
                 ThisActivity = currentActivity
@@ -187,7 +187,7 @@ namespace Activity.Controllers
                                   Include(a => a.Participants)
                                   .ThenInclude(p => p.User)
                                   .SingleOrDefault(a=> a.ThisActivityId == activityId);
-            ThisAction currentAction = dbContext.Actions.FirstOrDefault(a => a.User_Id == HttpContext.Session.GetInt32("id") && a.ThisActivityId == activityId);             
+            ThisAction currentAction = dbContext.Actions.FirstOrDefault(a => a.UserId == HttpContext.Session.GetInt32("id") && a.ThisActivityId == activityId);             
             currentActivity.Participants.Remove(currentAction);
             dbContext.SaveChanges();
             return RedirectToAction("Dashboard");

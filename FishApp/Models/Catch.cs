@@ -15,12 +15,12 @@ namespace FishApp.Models
 
         [Required]
         public string Description {get;set;}
+        public List<Like> Likers {get;set;}
         public int UserId {get;set;}
-        public List<Like> Likes {get;set;}
-        public User Liker {get;set;}
+        public User Creator {get;set;}
 
         public Catch() {
-            Likes = new List<Like>();
+            Likers = new List<Like>();
         }
 
         public DateTime CreatedAt {get;set;} = DateTime.Now;
