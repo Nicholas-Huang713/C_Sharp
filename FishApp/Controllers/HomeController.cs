@@ -98,6 +98,12 @@ namespace FishApp.Controllers
         [HttpGet("dashboard")]
         public IActionResult Dashboard()
         {
+            if(HttpContext.Session.GetInt32("id")== null)
+            {
+                return RedirectToAction("Index");
+            }
+            User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
+            ViewBag.CurrentUser = currentUser;
             return View("Dashboard");
         }
 

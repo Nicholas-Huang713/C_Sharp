@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FishApp.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190917080421_FirstMigration")]
+    [Migration("20190918092031_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,7 +99,7 @@ namespace FishApp.Migrations
             modelBuilder.Entity("FishApp.Models.Like", b =>
                 {
                     b.HasOne("FishApp.Models.Catch", "Catch")
-                        .WithMany("Likes")
+                        .WithMany("Likers")
                         .HasForeignKey("CatchId")
                         .OnDelete(DeleteBehavior.Cascade);
 

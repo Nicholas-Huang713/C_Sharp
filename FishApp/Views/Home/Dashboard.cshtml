@@ -19,11 +19,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/logout"><button> Logout</button></a>
                         </li>
+                        <li>
+                            
+                        </li>
                     </ul>
                 </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <h4>Welcome, @ViewBag.CurrentUser.FirstName</h4>
+                </div>
+                
             </div>
         </nav>
 
+        
     </header>
     <body>
         
@@ -49,11 +57,12 @@
                 var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
-                };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('You are here.');
-                infoWindow.open(map);
+                }; 
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: 'Your Location'
+                });
                 map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());

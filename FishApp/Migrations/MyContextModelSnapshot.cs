@@ -97,7 +97,7 @@ namespace FishApp.Migrations
             modelBuilder.Entity("FishApp.Models.Like", b =>
                 {
                     b.HasOne("FishApp.Models.Catch", "Catch")
-                        .WithMany("Likes")
+                        .WithMany("Likers")
                         .HasForeignKey("CatchId")
                         .OnDelete(DeleteBehavior.Cascade);
 
