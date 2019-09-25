@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FishApp.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190918092031_FirstMigration")]
+    [Migration("20190925200214_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,10 @@ namespace FishApp.Migrations
                         .IsRequired();
 
                     b.Property<string>("Img");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Species");
 
                     b.Property<DateTime>("UpdatedAt");
 

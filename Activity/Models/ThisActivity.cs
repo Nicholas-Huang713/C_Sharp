@@ -26,9 +26,9 @@ namespace Activity.Models
         public int UserId {get;set;}
         public User Coordinator {get;set;}
 
-        public List<ThisAction> Participants {get;set;}
+        public List<ThisAction> Participants {get;set;} 
         public ThisActivity() {
-            Participants = new List<ThisAction>();
+            Participants = new List<ThisAction>(); 
         }
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;

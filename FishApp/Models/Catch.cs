@@ -8,6 +8,8 @@ namespace FishApp.Models
     public class Catch
     {
         public int CatchId {get;set;}
+        public string Species {get;set;}
+        public string Location {get;set;}
         public string Img {get;set;}
         
         [DataType(DataType.Date)]
@@ -15,7 +17,7 @@ namespace FishApp.Models
 
         [Required]
         public string Description {get;set;}
-        public List<Like> Likers {get;set;}
+        public List<Like> Likers  {get;set;}
         public int UserId {get;set;}
         public User Creator {get;set;}
 

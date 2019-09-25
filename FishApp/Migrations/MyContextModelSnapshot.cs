@@ -31,6 +31,10 @@ namespace FishApp.Migrations
 
                     b.Property<string>("Img");
 
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Species");
+
                     b.Property<DateTime>("UpdatedAt");
 
                     b.Property<int>("UserId");

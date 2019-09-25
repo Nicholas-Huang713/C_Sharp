@@ -32,6 +32,8 @@ namespace FishApp.Migrations
                 {
                     CatchId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Species = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
                     Img = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: false),

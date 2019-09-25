@@ -164,7 +164,7 @@ namespace Activity.Controllers
                                   Include(a => a.Participants)
                                   .ThenInclude(p => p.User)
                                   .SingleOrDefault(a=> a.ThisActivityId == activityId);
-            ThisAction newAction = new ThisAction{
+            ThisAction newAction = new ThisAction{ 
                 UserId = currentUser.UserId,
                 User = currentUser,
                 ThisActivityId = currentActivity.ThisActivityId,

@@ -117,13 +117,14 @@ namespace FishApp.Controllers
             User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
             List<Catch> catchList = dbContext.Catches
                                     .Include(a => a.Creator)
+                                    .Include(a => a.Likers)
                                     .OrderBy(a => a.Date)
                                     .ToList();
-            // List<Like> userLikes = dbContext.Likes.Where(a => a.User == currentUser).ToList();
+            List<Like> userLikes = dbContext.Likes.Where(a => a.User == currentUser).ToList();
             ViewBag.Id = HttpContext.Session.GetInt32("id"); 
             ViewBag.CurrentUser = currentUser;
             ViewBag.CatchList = catchList;
-            // ViewBag.Likes = userLikes;   
+            ViewBag.Likes = userLikes;   
             return View("AllPosts");
         }
 
@@ -170,6 +171,47 @@ namespace FishApp.Controllers
             var myCatch = dbContext.Catches.FirstOrDefault(x=>x.CatchId == catchId);
             myCatch.Img = fileName;
             dbContext.Update(myCatch);
+        }
+
+        [HttpGet("like/{catchId}")]
+        public IActionResult Like(int catchId)
+        {
+            if(HttpContext.Session.GetString("id")== null)
+            {
+                return RedirectToAction("Index");
+            }
+            User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
+            Catch currentCatch = dbContext.Catches.
+                                  Include(a => a.Likers)
+                                  .ThenInclude(p => p.User)
+                                  .SingleOrDefault(a=> a.CatchId == catchId);
+            Like newLike = new Like{
+                UserId = currentUser.UserId,
+                User = currentUser,
+                CatchId = currentCatch.CatchId,
+                Catch = currentCatch
+            };
+            currentCatch.Likers.Add(newLike);
+            dbContext.SaveChanges();
+            return RedirectToAction("AllPosts");
+        }
+
+        [HttpGet("unlike/{catchId}")]
+        public IActionResult Unlike(int catchId)
+        {
+            if(HttpContext.Session.GetString("id")== null)
+            {
+                return RedirectToAction("Index");
+            }
+            User currentUser = dbContext.Users.SingleOrDefault(user => user.UserId == HttpContext.Session.GetInt32("id"));
+            Catch currentCatch = dbContext.Catches.
+                                  Include(a => a.Likers)
+                                  .ThenInclude(p => p.User)
+                                  .SingleOrDefault(a=> a.CatchId == catchId);
+            Like currentLike = dbContext.Likes.FirstOrDefault(a => a.UserId == HttpContext.Session.GetInt32("id") && a.CatchId == catchId);
+            currentCatch.Likers.Remove(currentLike);
+            dbContext.SaveChanges();
+            return RedirectToAction("AllPosts");
         }
 
         [HttpGet("logout")]
